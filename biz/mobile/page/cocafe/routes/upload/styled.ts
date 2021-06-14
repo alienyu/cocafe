@@ -32,33 +32,31 @@ const WrappedCmp = styled.div`
             font-size: 0.88rem;
             color: #705000;
         }
-        .nameFrame, .idFrame, .mobileFrame, .emailFrame {
-            .input {
-                width: 5.58rem;
-                height: 0.96rem;
-                line-height: 0.96rem;
-                font-size: 0.4rem;
-                padding-left: 0.3rem;
-                border: 2px solid #ffcc00;
-                &:focus {
-                    border: 2px solid #f8a301 !important;
+        .am-image-picker {
+            width: 3.43rem;
+            margin-left: 1.28rem;
+            margin-top: 1.48rem;
+            .am-image-picker-list {
+                padding: 0;
+                .am-image-picker-upload-btn:before, .am-image-picker-upload-btn:after {
+                    background: #fff;
                 }
-                &.error {
-                    border: 3px solid #db0007;
-                }
-            }
-            .errorLine {
-                font-size: 0.36rem;
-                color: red;
-                height: 0.6rem;
-                line-height: 0.6rem;
-                &.hide {
-                    visibility: hidden;
+                .am-image-picker-upload-btn {
+                    z-index: 100;
+                    opacity: 0.7;
                 }
             }
         }
-        .nameFrame {margin-top: 1.12rem;} 
-        .loginBtn {
+        .uploadHack {
+            position: absolute;
+            top: 7.7rem;
+            left: 3rem;
+            z-index: 99;
+            &.hide {
+                display:none;
+            }
+        }
+        .nextBtn {
             width: 6rem;
             height: 1.28rem;
             line-height: 1.28rem;

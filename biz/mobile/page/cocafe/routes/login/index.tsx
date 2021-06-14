@@ -147,6 +147,7 @@ export default class Login extends React.Component<{ history: any }, any> {
                         <Flex className="stepFrame" justify="around">
                             <div className="block active"></div>
                             <div className="block"></div>
+                            <div className="block"></div>
                         </Flex>
                         <div className="stepText">第1步</div>
                         <div className="title">输入个人信息</div>
