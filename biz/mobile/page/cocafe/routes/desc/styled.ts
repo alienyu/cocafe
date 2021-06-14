@@ -11,6 +11,22 @@ const WrappedCmp = styled.div`
             font-size: 0.32rem;
             color: #705000;
             line-height: 0.44rem;
+            opacity: 0;
+            &.effect {
+                -webkit-animation: show 1s ease;
+                -moz-animation: show 1s ease;
+                animation:show 1s ease;
+                opacity: 1;
+            }
+        }
+        @-webkit-keyframes show {
+            0% {opacity: 0;}
+            100% {opacity: 1;}
+        }
+           
+        @keyframes show {
+            0% {opacity: 0;}
+            100% {opacity: 1;}
         }
     }
 `;
