@@ -1,0 +1,101 @@
+body, .chart-page, #loading-indicator {
+    background: transparent;
+}
+.chart-page .chart-container {
+    border: 1px solid transparent;
+    background-color: #191e26; 
+}
+.chart-page .header-chart-panel-sizer .header-chart-panel-content .left .header-group-intervals {
+    float: right;
+    margin-right: 30px;
+    margin-top: 30px;
+}
+.chart-page .header-chart-panel-sizer .header-chart-panel-content .left .header-group-indicators {
+    float: right;
+    margin-top: 27px;
+}
+.chart-page .header-chart-panel-sizer .header-chart-panel-content .left .header-group-indicators .button {
+    border: none;
+    background-color: #191e26;
+}
+.chart-page .header-chart-panel-sizer .header-chart-panel-content .left .header-group-indicators .button::before {
+    border: 0 !important;
+}
+.chart-page .header-chart-panel-sizer .header-chart-panel-content .left .header-group-indicators .active {
+    background-color: #191e26; 
+}
+.chart-page .header-chart-panel-sizer .header-chart-panel-content .left .header-group-intervals .apply-common-tooltip {
+    background-color: #00a0ff;
+    color: #fff;
+}
+.chart-page .header-chart-panel-sizer .header-chart-panel-content .left .header-group-intervals span::before {
+    border: 0 !important;
+}
+.chart-page .header-chart-panel-sizer .header-chart-panel-content .left .header-group-intervals .quick span {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-color: #191e26;
+    border-right: 0;
+    padding: 4px 10px;
+    left: 1px;
+}
+.chart-page .header-chart-panel-sizer .header-chart-panel-content .left .header-group-intervals .submenu {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-color: #191e26;
+    height: 22px;
+}
+.tv-insert-indicator-dialog {
+    top: 60px !important;
+}
+.tv-insert-indicator-dialog .tv-insert-indicator-dialog__body {
+    max-height: 450px;
+}
+.pane-legend {
+    /* display: none; */
+}
+/* .chart-widget {
+    position: relative;
+    top: 10px;
+}
+.chart-widget .chart-markup-table tbody tr:nth-child(4) {
+    display: none;
+}
+.chart-widget .chart-markup-table tbody tr:nth-child(2) {
+    height: 5px !important;
+    background-color: #f3f7fa;
+} */
+.chart-widget .chart-markup-table .pane-separator, .chart-widget .chart-markup-table .pane-separator .handle {
+    background-color: #191e26 !important;
+    display: none;
+}
+.charts-popup-list.intervals-list {
+    background-color: #191e26;
+    border-color: #2F3656;
+}
+.charts-popup-list.intervals-list .item {
+    min-width: auto;
+    white-space: nowrap;
+    color: #B7C8D9;
+}
+.charts-popup-list.intervals-list .item:hover, .charts-popup-list.intervals-list .item.active {
+    background-color: #4d4f5f;
+}
+.charts-popup-list.intervals-list .separator {
+    border-top-color: #2F3656;
+}
+.tv-dialog {
+    background-color: #191e26;
+    color: #fff;
+    border-color: #2F3656;
+}
+.tv-dialog .tv-dialog__section {
+    border-color: #2F3656;
+}
+.tv-dialog .tv-insert-study-item:hover {
+    background-color: #4d4f5f;
+}
+.tv-dialog .tv-insert-indicator-dialog__pages::-webkit-scrollbar-thumb {
+    background-color: #2F3656;
+    border-color: #5c6174;
+}

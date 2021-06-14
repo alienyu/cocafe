@@ -1,0 +1,74 @@
+html, body {
+    width: 100%;
+    height: 100%; 
+    margin-top: 0;
+}
+p {
+    margin-bottom: 32px;
+    margin-top: 0;
+}
+p.small {
+    font-size: 12px;
+}
+span {
+    color: #262a34;
+    font-size: 28px;
+}
+span.bottom {
+    display: inline-block;
+    margin-bottom: 32px;
+}
+a {
+    color: #02ccff;
+    border-bottom: 1px solid #02ccff;
+}
+.wrapper {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.logo {
+    width: 224px;
+    height: 76px;
+    margin: 0 auto;
+    padding: 40px 0 60px;
+}
+.mainBox {
+    position: relative;
+    text-align: left;
+    width: 600px;
+    min-height: 400px;
+    padding: 0 30px;
+    background-color: #fff;
+    box-shadow: 0px 2px 6px 0px #e6e6e6;
+    margin: 0 auto;
+}
+.mainBox .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 90px;
+    height: 90px;
+}
+.mainBox .title {
+    height: 72px;
+    line-height: 72px;
+    box-shadow: 0px 1px 0px 0px #e6e6e6;
+    font-size: 16px;
+    color: #262a34;
+}
+.mainBox .content {
+    color: #484c52;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 24px 0 104px;
+}
+.mainBox .sign {
+    position: absolute;
+    left: 30px;
+    bottom: 32px;
+    color: #92949a;
+    font-size: 12px;
+    line-height: 24px;
+    margin-bottom: 0;
+}

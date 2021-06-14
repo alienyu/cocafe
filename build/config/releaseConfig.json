@@ -1,0 +1,9 @@
+{
+  "projectName": "cocafe",
+  "deployContent": {
+    "mobile": [
+      "cocafe"
+    ]
+  },
+  "ver": "release.0.7.0.0.5-(07/03 11:25)"
+}
