@@ -55,9 +55,9 @@ export default class Upload extends React.Component<{ history: any }, any> {
                             multiple={this.state.multiple}
                         />
                         <div className={this.state.uploadBtnClass}>点此上传照片</div>
-                    </div>
-                    <div className={this.state.promptClass}>{this.state.promptText}</div>
+                        <div className={this.state.promptClass}>{this.state.promptText}</div>
                     <Button className="nextBtn" onClick={this.next}>下一步</Button>
+                    </div>
                 </Flex>
             </WrappedCmp>
         )

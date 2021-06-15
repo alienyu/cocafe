@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const WrappedCmp = styled.div`
     background: #DB0007;
-    height: 100%;
+    min-height: 100vh;
     padding: 0 0.6rem;
     .logo {
         margin-top: 2.16rem;

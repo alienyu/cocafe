@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const WrappedCmp = styled.div`
-    height: 100%;
+    min-height: 100vh;  
     background: #ffcc00;
     .frame {
         width: 6rem;
