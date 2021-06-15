@@ -6,6 +6,10 @@ const logo = require("@mobileCocafeImgs/Logo.png");
 const check = require("@mobileCocafeImgs/check.png");
 
 const WrappedCmp = styled.div`
+    @keyframes flash {
+        0% {opacity: 0;}
+        100% {opacity: 1;}
+    }
     background: url(${bg}) no-repeat;
     background-size:100% 100%;
     min-height: 100vh;
@@ -43,6 +47,23 @@ const WrappedCmp = styled.div`
         font-weight: 400;
         color: #E62473;
     }
+    .toast {
+        position: absolute;
+        width: 3.65rem;
+        height: 0.81rem;
+        left: 2.01rem;
+        top: 11rem;
+        line-height: 0.81rem;
+        text-align: center;
+        background: #E62474;
+        color: #fff;
+        font-weight: 400;
+        font-size: 0.24rem;
+        opacity: 0;
+        &.show {
+            animation: flash 3s;
+        }
+    }
     .btn {
         position: absolute;
         width: 4.6rem;
@@ -61,7 +82,6 @@ const WrappedCmp = styled.div`
             background: url(${btnClick}) no-repeat;
             background-size: 100% 100%;
             ling-height: 0.88rem;
-
         }
     }
     .prompt {
