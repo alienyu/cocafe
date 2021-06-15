@@ -39,7 +39,7 @@ class Ajax {
         }
         if (config.urlName) requestObj.url = `${requestObj.url}${config.urlName}`;
         instance.request(requestObj).then((data: any) => {
-            config.callback.call(this, config.isFullData ? data.data : data.data.data);
+            config.callback.call(data.data);
         }).catch((error: any) => {
             console.log("error")
         })

@@ -135,7 +135,23 @@ export default class Login extends React.Component<{ history: any }, any> {
         this.validId(this.state.idInputText) &&
         this.vaildMobile(this.state.mobileInputText) &&
         this.validEmail(this.state.emailInputText)) {
-            this.props.history.push("/upload");
+            mobileCocafeAjax({
+                url: "auth",
+                method: "POST",
+                data: {
+                    username: this.state.nameInputText,
+                    staff: this.state.idInputText,
+                    email: this.state.emailInputText,
+                    phone: this.state.mobileInputText
+                },
+                callback(data) {
+                    console.log("data", data);
+                    if(data.token) {
+                        localStorage.setItem("token", data.token);
+                        // this.props.history.push("/upload");
+                    }
+                }
+            })
         };
     }
 

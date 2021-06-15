@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -7,19 +8,41 @@
     <meta name="format-detection" content="telephone=no">
     <title>Cocafe</title>
 </head>
+
 <body>
-<div id="app"></div>
-<script>
-    window.deployConf = {
-        platform: "<%= htmlWebpackPlugin.options.deployConf.platform %>",
-        page: "<%= htmlWebpackPlugin.options.deployConf.page %>",
-        mode: "<%= htmlWebpackPlugin.options.deployConf.mode %>",
-        ver: "<%= htmlWebpackPlugin.options.deployConf.ver %>"
-    }
-</script>
-<script>
-    let screenWidth = window.screen.width;
-    document.getElementsByTagName("html")[0].style.fontSize = (100*(screenWidth/750)).toString() + "px";
-</script>
+    <div id="app"></div>
+    <script>
+        window.deployConf = {
+            platform: "<%= htmlWebpackPlugin.options.deployConf.platform %>",
+            page: "<%= htmlWebpackPlugin.options.deployConf.page %>",
+            mode: "<%= htmlWebpackPlugin.options.deployConf.mode %>",
+            ver: "<%= htmlWebpackPlugin.options.deployConf.ver %>"
+        }
+    </script>
+    <script>
+        let screenWidth = window.screen.width;
+        document.getElementsByTagName("html")[0].style.fontSize = (100 * (screenWidth / 750)).toString() + "px";
+    </script>
+    <script>
+        (function () {
+            try {
+                isIOS = !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)
+                if (fn.isIOS) {
+                    // window.history.pushState({}, "title", "#");
+                    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+                        WeixinJSBridge.call('hideToolbar');        // 隐藏底部状态栏
+                        WeixinJSBridge.call('hideOptionMenu');     // 隐藏右上角的三个点的选项
+                        console.log('ios');
+                        // WeixinJSBridge.call('showToolbar');        // 显示底部状态栏
+                        // WeixinJSBridge.call('showOptionMenu');     // 显示右上角的三个点的选项
+                    });
+
+                }
+            } catch (e) {
+                //TODO handle the exception
+            }
+        })();
+    </script>
 </body>
+
 </html>

@@ -27,8 +27,9 @@ export default class Upload extends React.Component<{ history: any }, any> {
             });
             let formData = new FormData();
             let file = files[0].file;
-            formData.append('images', file);
-            var url = "aa";
+            formData.append('files', file);
+            formData.append('token', localStorage.getItem("tokem"));
+            var url = "https://memories.cocafe.co/api/upload/images";
             axios.post(url, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'

@@ -16,7 +16,17 @@ export default class Story extends React.Component<{ history: any }, any> {
 
     submit = () => {
         console.log(this.state.descText);
-        this.props.history.push("/success");
+        mobileCocafeAjax({
+            method: "post",
+            data: {
+                token: localStorage.getItem("token"),
+                story: this.state.descText
+            },
+            callback(data) {
+                console.log('data', data);
+                // this.props.history.push("/success");
+            }
+        })
     }
 
     render() {
