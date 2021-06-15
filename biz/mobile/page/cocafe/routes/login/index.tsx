@@ -1,4 +1,5 @@
 import * as React from "react";
+import axios from 'axios';
 import { Flex, Button } from 'antd-mobile';
 import { WrappedCmp } from './styled';
 
@@ -135,23 +136,20 @@ export default class Login extends React.Component<{ history: any }, any> {
         this.validId(this.state.idInputText) &&
         this.vaildMobile(this.state.mobileInputText) &&
         this.validEmail(this.state.emailInputText)) {
-            mobileCocafeAjax({
-                url: "auth",
-                method: "POST",
-                data: {
-                    username: this.state.nameInputText,
-                    staff: this.state.idInputText,
-                    email: this.state.emailInputText,
-                    phone: this.state.mobileInputText
-                },
-                callback(data) {
-                    console.log("data", data);
-                    if(data.token) {
-                        localStorage.setItem("token", data.token);
-                        // this.props.history.push("/upload");
-                    }
+            let formData = new FormData();
+            formData.append('username', this.state.nameInputText);
+            formData.append('staff', this.state.idInputText);
+            formData.append('phone', this.state.mobileInputText);
+            formData.append('email', this.state.emailInputText);
+
+            var url = "https://memories.cocafe.co/api/auth";
+            axios.post(url, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
                 }
-            })
+            }).then((json) => {
+              console.log(json); 
+            }).catch();
         };
     }
 

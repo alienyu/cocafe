@@ -18,7 +18,7 @@ export default class App extends React.Component<AppProps, {}> {
 
     render() {
         return (
-            <Router basename={window.deployConf.ver ? "/cocafe" : "/mobile/cocafe"}>
+            <Router basename={window.deployConf.ver ? "/" : "/mobile/cocafe"}>
                 {mobileCocafeRenderRoutes(mobileCocafeConstants.routes)}
             </Router>
         );
