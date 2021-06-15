@@ -18,6 +18,7 @@ export default class Story extends React.Component<{ history: any }, any> {
         console.log(this.state.descText);
         mobileCocafeAjax({
             method: "post",
+            url: "story",
             data: {
                 token: localStorage.getItem("token"),
                 story: this.state.descText

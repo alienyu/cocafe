@@ -33,7 +33,7 @@ class Ajax {
             requestObj = {
                 method,
                 url: url,
-                data: config.data || {}
+                data: config.data || {}         
             }
         }
         if (config.urlName) requestObj.url = `${requestObj.url}${config.urlName}`;
