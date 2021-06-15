@@ -38,7 +38,8 @@ export default class Login extends React.Component<{ history: any }, any> {
             this.setState({
                 nameInputClass: "input error",
                 nameErrClass: "errorLine",
-                nameInputErrText: errText
+                nameInputErrText: errText,
+                nameInputText: text
             })
             return false;
         } else {
@@ -63,7 +64,8 @@ export default class Login extends React.Component<{ history: any }, any> {
             this.setState({
                 idInputClass: "input error",
                 idErrClass: "errorLine",
-                idInputErrText: errText
+                idInputErrText: errText,
+                idInputText: text
             });
             return false;
         } else {
@@ -83,12 +85,13 @@ export default class Login extends React.Component<{ history: any }, any> {
 
     vaildMobile = text => {
         let errText;
-        if(!text) {
-            errText = "请输入手机";
+        if(!text.match(/^[1][3,4,5,7,8][0-9]{9}$/)) {
+            errText = "请输入正确的手机号码";
             this.setState({
                 mobileInputClass: "input error",
                 mobileErrClass: "errorLine",
-                mobileInputErrText: errText
+                mobileInputErrText: errText,
+                mobileInputText: text
             });
             return false;
         } else {
@@ -108,12 +111,13 @@ export default class Login extends React.Component<{ history: any }, any> {
 
     validEmail = text => {
         let errText;
-        if(!text) {
-            errText = "请输入姓名";
+        if(!text.match(/^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/)) {
+            errText = "请输入正确的邮箱";
             this.setState({
                 emailInputClass: "input error",
                 emailErrClass: "errorLine",
-                emailInputErrText: errText
+                emailInputErrText: errText,
+                emailInputText: text
             });
             return false;
         } else {

@@ -1,4 +1,5 @@
 import * as React from "react";
+import axios from 'axios';
 import { Flex, ImagePicker, Button } from 'antd-mobile';
 import { WrappedCmp } from './styled';
 
@@ -24,6 +25,17 @@ export default class Upload extends React.Component<{ history: any }, any> {
                 uploadBtnClass: "uploadHack hide",
                 files,
             });
+            let formData = new FormData();
+            let file = files[0].file;
+            formData.append('images', file);
+            var url = "aa";
+            axios.post(url, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            }).then((json) => {
+              console.log(json); 
+            }).catch();
         } else {
             this.setState({
                 uploadBtnClass: "uploadHack",
