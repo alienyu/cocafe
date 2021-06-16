@@ -1,33 +1,72 @@
 import * as React from "react";
-import { Flex, Button } from 'antd-mobile';
+import axios from 'axios';
+import { Flex } from 'antd-mobile';
 import { WrappedCmp } from './styled';
 
 export default class Story extends React.Component<{ history: any }, any> {
     constructor(props: any) {
         super(props);
         this.state = {
-            descText: ""
+            descText: "",
+            promptText: "",
+            promptClass: "prompt",
+            inputClass: "input"
         }
     }
 
     change = e => {
-        this.setState({ descText: e.target.value});
+        var descText = e.target.value ;
+        if(descText) {
+            this.setState({ 
+                descText, 
+                promptText: "",
+                promptClass: "prompt",
+                inputClass: "input"
+            });
+        } else {
+            this.setState({ 
+                descText, 
+                promptText: "请简述照片的故事",
+                promptClass: "prompt show",
+                inputClass: "input error"
+            });
+        }
     }
 
     submit = () => {
         console.log(this.state.descText);
-        mobileCocafeAjax({
-            method: "post",
-            url: "story",
-            data: {
-                token: localStorage.getItem("token"),
-                story: this.state.descText
-            },
-            callback(data) {
-                console.log('data', data);
-                // this.props.history.push("/success");
-            }
-        })
+        let that = this;
+        if(!this.state.descText) {
+            this.setState({ 
+                promptText: "请简述照片的故事",
+                promptClass: "prompt show",
+                inputClass: "input error"
+            });
+        } else {
+            let formData = new FormData();
+            formData.append('token', localStorage.getItem("token"));
+            formData.append('memory', this.state.descText)
+            var url = "https://memories.cocafe.co/api/upload/story";
+            axios.post(url, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            }).then((json) => {
+                console.log(json);
+                if (json.data.code == 0) {
+                    that.props.history.push("/success");
+                } else {
+                    that.setState({ 
+                        promptText: json.data.msg,
+                        promptClass: "prompt show"
+                    });
+                }
+            }).catch();
+        }
+    }
+
+    back = () => {
+        this.props.history.push("/upload");
     }
 
     render() {
@@ -35,21 +74,26 @@ export default class Story extends React.Component<{ history: any }, any> {
             <WrappedCmp>
                 <Flex justify="center" direction="column">
                     <div className="frame">
-                        <Flex className="stepFrame" justify="around">
-                            <div className="block"></div>
-                            <div className="block"></div>
-                            <div className="block active"></div>
+                        <div className="back" onClick={this.back}>返回</div>
+                        <div className="isolate"></div>
+                        <Flex className="stepFrame" justify="between">
+                            <div className="stepText">第&nbsp;3&nbsp;步</div>
+                            <div className="stepIcon">
+                                <div className="block"></div>
+                                <div className="block"></div>
+                                <div className="block active"></div>
+                            </div>
                         </Flex>
-                        <div className="stepText">第3步</div>
                         <div className="title">描述故事</div>
                         <div className="descFrame">
                             <textarea
-                                className="input"
+                                className={this.state.inputClass}
                                 placeholder="请简述照片的故事"
                                 onChange={this.change}
                             />
                         </div>
-                        <Button className="submitBtn" onClick={this.submit}>提交</Button>
+                        <div className={this.state.promptClass}>{this.state.promptText}</div>
+                        <button className="submitBtn" onClick={this.submit}>提交</button>
                     </div>
                 </Flex>
             </WrappedCmp>
