@@ -1,8 +1,9 @@
 import * as React from "react";
 import axios from 'axios';
-import { Flex, Button } from 'antd-mobile';
+import { Flex } from 'antd-mobile';
 import { WrappedCmp } from './styled';
 
+const toastIcon = require("@mobileCocafeImgs/toast.png");
 
 export default class Login extends React.Component<{ history: any }, any> {
     constructor(props: any) {
@@ -23,7 +24,8 @@ export default class Login extends React.Component<{ history: any }, any> {
             emailInputText: "",
             emailInputClass: "input",
             emailErrClass: "errorLine",
-            emailInputErrText: ""
+            emailInputErrText: "",
+            toastStatus: false
         }
     }
 
@@ -34,8 +36,8 @@ export default class Login extends React.Component<{ history: any }, any> {
 
     validName = text => {
         let errText;
-        if(!text) {
-            errText = "请输入姓名";
+        if (!text) {
+            errText = "！请输入姓名";
             this.setState({
                 nameInputClass: "input error",
                 nameErrClass: "errorLine",
@@ -60,8 +62,8 @@ export default class Login extends React.Component<{ history: any }, any> {
 
     validId = text => {
         let errText;
-        if(!text) {
-            errText = "请输入工号";
+        if (!text) {
+            errText = "！请输入工号";
             this.setState({
                 idInputClass: "input error",
                 idErrClass: "errorLine",
@@ -86,8 +88,17 @@ export default class Login extends React.Component<{ history: any }, any> {
 
     vaildMobile = text => {
         let errText;
-        if(!text.match(/^[1][3,4,5,7,8][0-9]{9}$/)) {
-            errText = "请输入正确的手机号码";
+        if (!text) {
+            errText = "！请输入手机号";
+            this.setState({
+                mobileInputClass: "input error",
+                mobileErrClass: "errorLine",
+                mobileInputErrText: errText,
+                mobileInputText: text
+            });
+            return false;
+        } else if (!text.match(/^[1][3,4,5,7,8][0-9]{9}$/)) {
+            errText = "！手机号格式有误";
             this.setState({
                 mobileInputClass: "input error",
                 mobileErrClass: "errorLine",
@@ -112,8 +123,17 @@ export default class Login extends React.Component<{ history: any }, any> {
 
     validEmail = text => {
         let errText;
-        if(!text.match(/^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/)) {
-            errText = "请输入正确的邮箱";
+        if (!text) {
+            errText = "！请输入邮箱";
+            this.setState({
+                emailInputClass: "input error",
+                emailErrClass: "errorLine",
+                emailInputErrText: errText,
+                emailInputText: text
+            });
+            return false;
+        } else if (!text.match(/^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/)) {
+            errText = "！邮箱格式有误";
             this.setState({
                 emailInputClass: "input error",
                 emailErrClass: "errorLine",
@@ -132,43 +152,65 @@ export default class Login extends React.Component<{ history: any }, any> {
     }
 
     login = () => {
-        if(this.validName(this.state.nameInputText) &&
-        this.validId(this.state.idInputText) &&
-        this.vaildMobile(this.state.mobileInputText) &&
-        this.validEmail(this.state.emailInputText)) {
+        let that = this;
+        if (this.validName(this.state.nameInputText) &&
+            this.validId(this.state.idInputText) &&
+            this.vaildMobile(this.state.mobileInputText) &&
+            this.validEmail(this.state.emailInputText)) {
             let formData = new FormData();
             formData.append('username', this.state.nameInputText);
             formData.append('staff', this.state.idInputText);
             formData.append('phone', this.state.mobileInputText);
             formData.append('email', this.state.emailInputText);
-
             var url = "https://memories.cocafe.co/api/auth";
             axios.post(url, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             }).then((json) => {
-              console.log(json); 
+                console.log(json);
+                if (json.data.code == 0) {
+                    localStorage.setItem("token", json.data.data.token);
+                    that.props.history.push("/upload");
+                } else {
+                    that.openToast();
+                }
             }).catch();
         };
+    }
+
+    back = () => {
+        this.props.history.push("/");
     }
 
     next = () => {
         this.props.history.push("/upload");
     }
 
+    openToast = () => {
+        this.setState({ toastStatus: true });
+    }
+
+    closeToast = () => {
+        this.setState({ toastStatus: false });
+    }
+
     render() {
         return (
             <WrappedCmp>
-                <Flex justify="center" direction="column">
-                    <div className="frame">
-                        <Flex className="stepFrame" justify="around">
+                <div className="frame">
+                    <div className="back" onClick={this.back}>返回</div>
+                    <div className="isolate"></div>
+                    <Flex className="stepFrame" justify="between">
+                        <div className="stepText">第&nbsp;1&nbsp;步</div>
+                        <div className="stepIcon">
                             <div className="block active"></div>
                             <div className="block"></div>
                             <div className="block"></div>
-                        </Flex>
-                        <div className="stepText">第1步</div>
-                        <div className="title">输入个人信息</div>
+                        </div>
+                    </Flex>
+                    <div className="title">输入个人信息</div>
+                    <Flex direction="row">
                         <div className="nameFrame">
                             <input
                                 type="text" className={this.state.nameInputClass}
@@ -185,25 +227,36 @@ export default class Login extends React.Component<{ history: any }, any> {
                             />
                             <div className={this.state.idErrClass}>{this.state.idInputErrText}</div>
                         </div>
-                        <div className="mobileFrame">
-                            <input
-                                type="text" className={this.state.mobileInputClass}
-                                placeholder="手机"
-                                onChange={this.mobileChange}
-                            />
-                            <div className={this.state.mobileErrClass}>{this.state.mobileInputErrText}</div>
-                        </div>
-                        <div className="emailFrame">
-                            <input
-                                type="text" className={this.state.emailInputClass}
-                                placeholder="邮箱"
-                                onChange={this.emailChange}
-                            />
-                            <div className={this.state.emailErrClass}>{this.state.emailInputErrText}</div>
-                        </div>
-                        <Button className="loginBtn" onClick={this.login}>登录</Button>
+                    </Flex>
+                    <div className="mobileFrame">
+                        <input
+                            type="text" className={this.state.mobileInputClass}
+                            placeholder="手机"
+                            onChange={this.mobileChange}
+                        />
+                        <div className={this.state.mobileErrClass}>{this.state.mobileInputErrText}</div>
                     </div>
-                </Flex>
+                    <div className="emailFrame">
+                        <input
+                            type="text" className={this.state.emailInputClass}
+                            placeholder="邮箱"
+                            onChange={this.emailChange}
+                        />
+                        <div className={this.state.emailErrClass}>{this.state.emailInputErrText}</div>
+                    </div>
+                    <button className="loginBtn" onClick={this.login}>下一步</button>
+                </div>
+                {this.state.toastStatus ?
+                    <div className="errToast">
+                        <div className="content">
+                            <img src={toastIcon} />
+                            <div className="text">请查看填写的信息</div>
+                            <div className="text">是否正确</div>
+                        </div>
+                        <div className="confirmBtn" onClick={this.closeToast}>确定</div>
+                    </div>
+                    : null
+                }
             </WrappedCmp>
         )
     }

@@ -1,6 +1,6 @@
 import * as React from "react";
 import axios from 'axios';
-import { Flex, ImagePicker, Button } from 'antd-mobile';
+import { Flex, ImagePicker } from 'antd-mobile';
 import { WrappedCmp } from './styled';
 
 export default class Upload extends React.Component<{ history: any }, any> {
@@ -15,15 +15,25 @@ export default class Upload extends React.Component<{ history: any }, any> {
     }
 
     next = () => {
-        this.props.history.push("/story");
+        if(this.state.files.length < 1) {
+            this.setState({ 
+                promptClass: "prompt show",
+                promptText: "请上传照片"
+            });
+        } else {
+            this.props.history.push("/story");
+        }
     }
 
     onChange = (files, type, index) => {
+        let that = this;
         console.log(files, type, index);
         if (files.length > 0) {
             this.setState({
                 uploadBtnClass: "uploadHack hide",
                 files,
+                promptClass: "prompt",
+                promptText: ""
             });
             let formData = new FormData();
             let file = files[0].file;
@@ -35,7 +45,11 @@ export default class Upload extends React.Component<{ history: any }, any> {
                     'Content-Type': 'multipart/form-data'
                 }
             }).then((json) => {
-              console.log(json); 
+                console.log(json);
+                that.setState({
+                    promptClass: "prompt show",
+                    promptText: json.data.msg
+                })
             }).catch();
         } else {
             this.setState({
@@ -45,33 +59,39 @@ export default class Upload extends React.Component<{ history: any }, any> {
         }
     }
 
+    back = () => {
+        this.props.history.push("/login");
+    }
+
     render() {
         const { files } = this.state;
 
         return (
             <WrappedCmp>
-                <Flex justify="center" direction="column">
-                    <div className="frame">
-                        <Flex className="stepFrame" justify="around">
+                <div className="frame">
+                    <div className="back" onClick={this.back}>返回</div>
+                    <div className="isolate"></div>
+                    <Flex className="stepFrame" justify="between">
+                        <div className="stepText">第&nbsp;2&nbsp;步</div>
+                        <div className="stepIcon">
                             <div className="block"></div>
                             <div className="block active"></div>
                             <div className="block"></div>
-                        </Flex>
-                        <div className="stepText">第2步</div>
-                        <div className="title">上传照片</div>
-                        <ImagePicker
-                            files={files}
-                            onChange={this.onChange}
-                            onImageClick={(index, fs) => console.log(index, fs)}
-                            selectable={files.length < 1}
-                            length={1}
-                            multiple={this.state.multiple}
-                        />
-                        <div className={this.state.uploadBtnClass}>点此上传照片</div>
-                        <div className={this.state.promptClass}>{this.state.promptText}</div>
-                    <Button className="nextBtn" onClick={this.next}>下一步</Button>
-                    </div>
-                </Flex>
+                        </div>
+                    </Flex>
+                    <div className="title">上传照片</div>
+                    <ImagePicker
+                        files={files}
+                        onChange={this.onChange}
+                        onImageClick={(index, fs) => console.log(index, fs)}
+                        selectable={files.length < 1}
+                        length={1}
+                        multiple={this.state.multiple}
+                    />
+                    <div className={this.state.uploadBtnClass}>点此上传照片</div>
+                    <div className={this.state.promptClass}>{this.state.promptText}</div>
+                    <button className="nextBtn" onClick={this.next}>下一步</button>
+                </div>
             </WrappedCmp>
         )
     }

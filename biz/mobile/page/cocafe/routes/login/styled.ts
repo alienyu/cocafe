@@ -1,75 +1,155 @@
 import styled from 'styled-components';
 
+const bg = require("@mobileCocafeImgs/bg.png");
+const backIcon = require("@mobileCocafeImgs/back.png");
+const btnOri = require("@mobileCocafeImgs/btnOri.png");
+const btnClick = require("@mobileCocafeImgs/btnClick.png");
+
 const WrappedCmp = styled.div`
+    position: relative;
     min-height: 100vh;  
-    background: #ffcc00;
+    background: url(${bg}) no-repeat;
+    background-size: 100% 100%;
     .frame {
         width: 6rem;
         height: 100%;
+        padding: 0.4rem 0.83rem;
+        .back {
+            background: url(${backIcon}) no-repeat;
+            background-size: 0.44rem 0.28rem;
+            font-weight: 500;
+            font-size: 0.24rem;
+            color: #e62474;
+            padding-left: 0.6rem;
+        }
+        .isolate {
+            width: 6rem;
+            height: 1px;
+            margin-top: 0.4rem
+            background: #E62474;
+        }
         .stepFrame {
             width: 100%;
-            height: 0.22rem;
-            margin-top: 2.36rem;
-            .block {
-                width: 1.9rem;
-                height: 100%;
-                background: #db0007;
-                opacity: 0.2;;
-                &.active {
-                    opacity: 1;
+            height: 0.4rem;
+            margin-top: 0.4rem;
+            .stepText {
+                font-weight: 500;
+                font-size: 0.32rem;
+                color: #e62474;
+            }
+            .stepIcon {
+                width: 0.8rem;
+                height: 0.4rem;
+                .block {
+                    display: inline-block;
+                    margin-left: 0.1rem;
+                    width: 0.16rem;
+                    height: 0.16rem;
+                    background: #e62474;
+                    opacity: 0.3;
+                    &.active {
+                        opacity: 1;
+                    }
                 }
             }
         }
-        .stepText {
-            margin-top: 0.33rem;
-            font-weight: 600;
-            font-size: 0.4rem;
-            color: #705000;
-        }
         .title {
-            margin-top: 0.33rem;
-            font-weight: 600;
-            font-size: 0.88rem;
-            color: #705000;
+            margin-top: 0.24rem;
+            font-weight: 700;
+            font-size: 0.48rem;
+            color: #fff;
         }
         .nameFrame, .idFrame, .mobileFrame, .emailFrame {
+            margin-top: 0.4rem;
             .input {
-                width: 5.58rem;
-                height: 0.96rem;
-                line-height: 0.96rem;
-                font-size: 0.4rem;
-                padding-left: 0.3rem;
-                border: 2px solid #ffcc00;
+                width: 5.44rem;
+                height: 0.8rem;
+                line-height: 0.8rem;
+                font-size: 0.26rem;
+                padding-left: 0.32rem;
+                background: rgba(0, 0, 0, 0.57);
+                border: 1px solid #E62474;
+                color: #fff;
                 &:focus {
-                    border: 2px solid #f8a301 !important;
+                    border: 3px solid #FFFFFF !important;
                 }
                 &.error {
-                    border: 3px solid #db0007;
+                    border: 3px solid #E62474;
                 }
             }
             .errorLine {
-                font-size: 0.36rem;
-                color: red;
-                height: 0.6rem;
-                line-height: 0.6rem;
+                font-size: 0.22rem;
+                color: #e62474;
+                margin-top: 0.16rem;
+                height: 0.3rem;
+                line-height: 0.3rem;
                 &.hide {
                     visibility: hidden;
                 }
             }
         }
-        .nameFrame {margin-top: 1.12rem;} 
+        .nameFrame, .idFrame {
+            margin-top: 0.64rem;
+            .input {
+                width: 2.42rem;
+            }
+        }
+        .idFrame { margin-left: 0.2rem;}
         .loginBtn {
-            width: 6rem;
-            height: 1.28rem;
-            line-height: 1.28rem;
+            width: 4.6rem;
+            height: 1.1rem;
+            line-height: 1.1rem;
+            margin-top: 1.53rem;
+            margin-left: 0.73rem;
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.32rem;
             color: #fff;
-            background: #db0007;
-            font-size: 0.48rem;
-            font-weight: 400;
-            border-radius: 190px;
-            margin-top: 0.7rem;
-        }  
+            background: url(${btnOri}) no-repeat;
+            background-size: 100% 100%;
+            border: 0px;
+            &:active {        
+                background: url(${btnClick}) no-repeat;
+                background-size: 100% 100%;
+                ling-height: 0.88rem;
+            }
+        } 
     }
+    .errToast {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -2.05rem;
+        margin-top: -2rem;
+        width: 4.1rem;
+        height: 4.05rem;
+        text-align: center;
+        .content {
+            width: 4.1rem;
+            height: 3.33rem;
+            background: #E62474;
+            img {
+                width: 1.28rem;
+                height: 1.1rem;
+                margin: 0.4rem 0;
+            }
+            .text {
+                font-weight: 500;
+                font-size: 0.32rem;
+                color: #fff;
+                line-height: 0.4rem;
+            }
+        }
+        .confirmBtn {
+            width: 4.1rem;
+            height: 0.72rem;
+            line-height: 0.72rem;
+            background: #fff;
+            color: #E62474
+            font-weight: 500;
+            font-size: 0.32rem;
+        }
+    } 
 `;
 
 export {
