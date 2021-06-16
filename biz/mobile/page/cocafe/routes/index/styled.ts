@@ -3,6 +3,7 @@ const bg = require("@mobileCocafeImgs/mainBG.png");
 const btnOri = require("@mobileCocafeImgs/btnOri.png");
 const btnClick = require("@mobileCocafeImgs/btnClick.png");
 const logo = require("@mobileCocafeImgs/Logo.png");
+const mcLogo = require("@mobileCocafeImgs/mcLogo.png");
 const check = require("@mobileCocafeImgs/check.png");
 
 const WrappedCmp = styled.div`
@@ -13,12 +14,22 @@ const WrappedCmp = styled.div`
     background: url(${bg}) no-repeat;
     background-size:100% 100%;
     min-height: 100vh;
-    .logo {
+    .mcLogo {
         position: absolute;
         top: 2.64rem;
         left: 0.68rem;
-        width: 1.5rem;
-        height: 2.46rem;
+        width: 0.94rem;
+        height: 0.82rem;
+        background: url(${mcLogo}) no-repeat;
+        background-size: 100% 100%;
+
+    }
+    .logo {
+        position: absolute;
+        top: 2.64rem;
+        left: 1.88rem;
+        width: 0.88rem;
+        height: 1.34rem;
         background: url(${logo}) no-repeat;
         background-size: 100% 100%;
 

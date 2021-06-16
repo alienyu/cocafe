@@ -30,7 +30,7 @@ export default class Index extends React.Component<{ history: any }, any> {
             checkClass: !this.state.check ? "check" : ""
         });
     }
-    
+
     modalOpen = () => {
         this.setState({ modal: true });
     }
@@ -42,6 +42,7 @@ export default class Index extends React.Component<{ history: any }, any> {
     render() {
         return (
             <WrappedCmp>
+                <div className="mcLogo"></div>
                 <div className="logo"></div>
                 <div className="title1">
                     上传你在在凯科大厦的回忆<br />
@@ -63,7 +64,7 @@ export default class Index extends React.Component<{ history: any }, any> {
                     maskClosable={false}
                     onClose={this.modalClose}
                     title="活动规则及个人信息使用说明"
-                    footer={[{ text: '已知晓', onPress: () => {this.modalClose(); } }]}
+                    footer={[{ text: '已知晓', onPress: () => { this.modalClose(); } }]}
                 >
                     <div style={{ height: 100, overflow: 'scroll' }}>
                         scoll content...<br />
