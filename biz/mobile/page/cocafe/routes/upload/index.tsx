@@ -56,7 +56,12 @@ export default class Upload extends React.Component<{ history: any }, any> {
                     promptClass: "prompt show",
                     promptText: text
                 });
-            }).catch();
+            }).catch((e) => {
+                that.setState({
+                    promptClass: "prompt show",
+                    promptText: "上传失败，请重新上传"
+                });
+            });
         } else {
             this.setState({
                 uploadBtnClass: "uploadHack",
