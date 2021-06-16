@@ -162,7 +162,7 @@ export default class Login extends React.Component<{ history: any }, any> {
             formData.append('staff', this.state.idInputText);
             formData.append('phone', this.state.mobileInputText);
             formData.append('email', this.state.emailInputText);
-            var url = "https://memories.cocafe.co/api/auth";
+            var url = `${mobileCocafeConstants.ajax.host}/auth`;
             axios.post(url, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
@@ -175,7 +175,9 @@ export default class Login extends React.Component<{ history: any }, any> {
                 } else {
                     that.openToast();
                 }
-            }).catch();
+            }).catch((e) => {
+                that.openToast();
+            });
         };
     }
 

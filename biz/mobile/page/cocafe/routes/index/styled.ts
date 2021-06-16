@@ -16,7 +16,7 @@ const WrappedCmp = styled.div`
     min-height: 100vh;
     .mcLogo {
         position: absolute;
-        top: 2.64rem;
+        top: ${375/window.screen.width*window.screen.height/812*2.64}rem;
         left: 0.68rem;
         width: 0.94rem;
         height: 0.82rem;
@@ -26,7 +26,7 @@ const WrappedCmp = styled.div`
     }
     .logo {
         position: absolute;
-        top: 2.64rem;
+        top: ${375/window.screen.width*window.screen.height/812*2.64}rem;
         left: 1.88rem;
         width: 0.88rem;
         height: 1.34rem;
@@ -38,7 +38,7 @@ const WrappedCmp = styled.div`
         position: absolute;
         background: rgba(0, 0, 0, 0.57);
         width: 3.66rem;
-        top: 9.14rem;
+        top: ${375/window.screen.width*window.screen.height/812*9.14}rem;
         padding: 0.3rem;
         left: 0.6rem;
         border: 1px solid #E62474;
@@ -50,7 +50,7 @@ const WrappedCmp = styled.div`
         position: absolute;
         background: rgba(0, 0, 0, 0.57);
         width: 4.1rem;
-        top: 10.24rem;
+        top: ${375/window.screen.width*window.screen.height/812*10.11}rem;
         padding: 0.3rem;
         left: 2.34rem;
         border: 1px solid #E62474;
@@ -63,7 +63,7 @@ const WrappedCmp = styled.div`
         width: 3.65rem;
         height: 0.81rem;
         left: 2.01rem;
-        top: 11rem;
+        top: ${375/window.screen.width*window.screen.height/812*11}rem;
         line-height: 0.81rem;
         text-align: center;
         background: #E62474;
@@ -80,7 +80,7 @@ const WrappedCmp = styled.div`
         width: 4.6rem;
         height: 1.1rem;
         left: 1.36rem;
-        top: 13rem;
+        top: ${375/window.screen.width*window.screen.height/812*13}rem;
         line-height: 1.1rem;
         text-align: center;
         font-weight: 500;
@@ -97,7 +97,7 @@ const WrappedCmp = styled.div`
     }
     .prompt {
         position: absolute;
-        top: 14.5rem;
+        top: ${375/window.screen.width*window.screen.height/812*15}rem;
         left: 1.16rem;
         font-size: 0.20rem;
         font-weight: 400;

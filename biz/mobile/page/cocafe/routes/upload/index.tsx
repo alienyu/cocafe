@@ -39,17 +39,23 @@ export default class Upload extends React.Component<{ history: any }, any> {
             let file = files[0].file;
             formData.append('files', file);
             formData.append('token', localStorage.getItem("token"));
-            var url = "https://memories.cocafe.co/api/upload/images";
+            var url = `${mobileCocafeConstants.ajax.host}/upload/images`;
             axios.post(url, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             }).then((json) => {
                 console.log(json);
+                var text = "";
+                if(json.data.code == 0) {
+                    text = "上传成功";
+                } else {
+                    text = json.data.msg;
+                }
                 that.setState({
                     promptClass: "prompt show",
-                    promptText: json.data.msg
-                })
+                    promptText: text
+                });
             }).catch();
         } else {
             this.setState({

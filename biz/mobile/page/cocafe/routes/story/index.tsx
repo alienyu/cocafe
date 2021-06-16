@@ -46,7 +46,7 @@ export default class Story extends React.Component<{ history: any }, any> {
             let formData = new FormData();
             formData.append('token', localStorage.getItem("token"));
             formData.append('memory', this.state.descText)
-            var url = "https://memories.cocafe.co/api/upload/story";
+            var url = `${mobileCocafeConstants.ajax.host}/upload/story`;
             axios.post(url, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
@@ -61,7 +61,13 @@ export default class Story extends React.Component<{ history: any }, any> {
                         promptClass: "prompt show"
                     });
                 }
-            }).catch();
+            }).catch((e) => {
+                that.setState({ 
+                    promptText: "格式错误",
+                    promptClass: "prompt show",
+                    inputClass: "input error"
+                });
+            });
         }
     }
 
