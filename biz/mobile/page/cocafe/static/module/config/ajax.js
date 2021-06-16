@@ -1,5 +1,5 @@
 //ajax配置
-var host = "http://memories.cocafe.co:61668";
+var host = "https://memories.cocafe.co/api";
 
 module.exports = {
     ajax: {
