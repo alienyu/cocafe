@@ -37,11 +37,11 @@ const WrappedCmp = styled.div`
         .iconFrame {
             width: 100%;
             margin-top: 0.75rem;
-            text-align: center;
             .mcLogo {
                 display: inline-block;
                 width: 1.25rem;
                 height: 1.09rem;
+                margin-left: 2.4rem;
                 margin-right: 0.65rem;
                 margin-bottom: 0.15rem;
             }
