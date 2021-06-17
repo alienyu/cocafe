@@ -80,7 +80,7 @@ const WrappedCmp = styled.div`
         width: 4.6rem;
         height: 1.1rem;
         left: 1.45rem;
-        top: 8.74rem;
+        bottom: 1.83rem;
         line-height: 1.1rem;
         text-align: center;
         font-weight: 500;
@@ -97,7 +97,7 @@ const WrappedCmp = styled.div`
     }
     .prompt {
         position: absolute;
-        top: 10.36rem;
+        bottom: 1rem;
         left: 50%;
         font-size: 12px;
         font-weight: 400;

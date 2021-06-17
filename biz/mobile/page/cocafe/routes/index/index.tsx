@@ -93,8 +93,8 @@ export default class Index extends React.Component<{ history: any }, any> {
                     wrapClassName="instructionModal"
                     footer={[{ text: '已知晓', onPress: () => { this.instructionModalClose(); } }]}
                 >
-                    <div style={{ height: 600, width: 350, overflow: 'scroll' }}>
-                        <iframe src="https://memories.cocafe.co/upload" width="300" height=" 600"></iframe>
+                    <div style={{ height: 600, width: 300 }}>
+                        <iframe src="https://memories.cocafe.co/mobile/cocafe/policy.html" width="296" height=" 600" style={{ border: 0 }}></iframe>
                     </div>
                 </Modal>
             </WrappedCmp >
