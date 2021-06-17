@@ -90,6 +90,11 @@ const WrappedCmp = styled.div`
                 }
             }
         }
+        .warn {
+            margin-top: 0.2rem;
+            color: #fff;
+            font-size: 12px;
+        }
         .uploadHack {
             position: absolute;
             top: 7rem;

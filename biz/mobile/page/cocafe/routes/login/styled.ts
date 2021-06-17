@@ -61,7 +61,7 @@ const WrappedCmp = styled.div`
         .nameFrame, .idFrame, .mobileFrame, .emailFrame {
             margin-top: 0.4rem;
             .input {
-                width: 5.5rem;
+                width: 5.46rem;
                 height: 0.8rem;
                 line-height: 0.8rem;
                 font-size: 0.26rem;

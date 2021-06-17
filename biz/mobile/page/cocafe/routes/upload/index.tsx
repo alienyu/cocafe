@@ -102,6 +102,7 @@ export default class Upload extends React.Component<{ history: any }, any> {
                         length={1}
                         multiple={this.state.multiple}
                     />
+                    <div className="warn">* 此处若出现图片旋转不用担心，我们会收到你上传图片的原文件。</div>
                     <div className={this.state.uploadBtnClass}>点此上传照片</div>
                     <div className={this.state.promptClass}>{this.state.promptText}</div>
                     <button className="nextBtn" onClick={this.next}>下一步</button>
