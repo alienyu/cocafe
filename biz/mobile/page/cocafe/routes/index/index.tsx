@@ -76,7 +76,7 @@ export default class Index extends React.Component<{ history: any }, any> {
                     title="共铸焕动回忆”活动规则"
                     footer={[{ text: '已知晓', onPress: () => { this.activeModalClose(); } }]}
                 >
-                    <div style={{ height: 500, textAlign: 'left' }}>
+                    <div style={{ height: 450, textAlign: 'left'}}>
                         1.本活动仅限金拱门（中国）有限公司的在职员工参加。<br />
                         2.参与者需根据活动页面的提示，填写您本人的相关信息和上传您本人的肖像照片。一经上传后，您的肖像照片将会通过艺术处理，并生成限量NFT作品放置于区块链公链与IPFS存储上。该NFT作品可通过电子钱包（需另行下载）获得。<br />
                         3.参加本活动前，请务必详细阅读随附本活动的个人信息使用说明。<br />
@@ -93,7 +93,7 @@ export default class Index extends React.Component<{ history: any }, any> {
                     wrapClassName="instructionModal"
                     footer={[{ text: '已知晓', onPress: () => { this.instructionModalClose(); } }]}
                 >
-                    <div style={{ height: 600, width: 300 }}>
+                    <div style={{ height: 500, width: 300 }}>
                         <iframe src="https://memories.cocafe.co/mobile/cocafe/policy.html" width="296" height=" 600" style={{ border: 0 }}></iframe>
                     </div>
                 </Modal>

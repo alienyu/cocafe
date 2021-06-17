@@ -12,7 +12,7 @@ const WrappedCmp = styled.div`
     background-size: 100% 100%;
     .frame {
         height: 100%;
-        padding: 0.4rem 0.83rem;
+        padding: 0.4rem 0.8rem;
         .back {
             background: url(${backIcon}) no-repeat;
             background-size: 0.44rem 0.28rem;
