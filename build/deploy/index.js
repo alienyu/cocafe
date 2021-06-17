@@ -1,3 +1,3 @@
-var {  } = require("./dealFavicon.js")
+var { copyFiles } = require("./copyFiles.js")
 
-dealFavicon();
+copyFiles();

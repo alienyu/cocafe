@@ -13,3 +13,5 @@ const copyFiles = () => {
     }
 }
 copyFiles();
+
+module.exports = { copyFiles }
