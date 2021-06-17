@@ -60,35 +60,39 @@ const WrappedCmp = styled.div`
         }
         .am-image-picker {
             width: 6rem;
-            height: 3.2rem;
-            margin-top: -0.4rem;
+            height: 6rem;
+            margin-top: 0.64rem;
             .am-image-picker-list {
                 padding: 0;
                 .am-image-picker-upload-btn:before {
                     background: #e62474;
                     width: 1PX;
-                    height: 0.8rem;
+                    height: 1.5rem;
                 }
                 .am-image-picker-upload-btn:after {
                     background: #e62474;
-                    width: 0.8rem;
+                    width: 1.5rem;
                     height: 1PX;
                 }
                 .am-image-picker-item {
                     background: rgba(0, 0, 0, 0.57);
                     border: 1px solid #E62474;
                     width: 6rem;
-                    height: 3.2rem;
+                    height: 5.9rem;
                     z-index: 100;
                     .am-image-picker-item-content {
                         background-size: 100% 100%;
+                    }
+                    .am-image-picker-item-remove {
+                        background-repeat: no-repeat;
+                        background-size: 100%;
                     }
                 }
             }
         }
         .uploadHack {
             position: absolute;
-            top: 5.9rem;
+            top: 7.5rem;
             left: 50%;
             width: 1.56rem;
             margin-left: -0.68rem;
@@ -108,7 +112,7 @@ const WrappedCmp = styled.div`
             text-align: center;
             color: #e62474;
             font-size: 0.24rem;
-            margin-top: 1.8rem;
+            margin-top: 0.8rem;
             &.show { visibility: visible;}
         }
         .nextBtn {

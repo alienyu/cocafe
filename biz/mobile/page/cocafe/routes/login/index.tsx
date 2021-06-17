@@ -132,7 +132,7 @@ export default class Login extends React.Component<{ history: any }, any> {
                 emailInputText: text
             });
             return false;
-        } else if (!text.match(/^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/)) {
+        } else if (!text.match(/^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{1,14}$/)) {
             errText = "！邮箱格式有误";
             this.setState({
                 emailInputClass: "input error",
