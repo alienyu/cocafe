@@ -1,6 +1,6 @@
 import * as React from "react";
 import axios from 'axios';
-import { Flex } from 'antd-mobile';
+import { Flex, Toast } from 'antd-mobile';
 import { WrappedCmp } from './styled';
 
 const toastIcon = require("@mobileCocafeImgs/toast.png");
@@ -162,12 +162,14 @@ export default class Login extends React.Component<{ history: any }, any> {
             // formData.append('phone', this.state.mobileInputText);
             formData.append('email', this.state.emailInputText);
             var url = `${mobileCocafeConstants.ajax.host}/auth`;
+            Toast.loading("Loading...");
             axios.post(url, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             }).then((json) => {
                 console.log(json);
+                Toast.hide();
                 if (json.data.code == 0) {
                     localStorage.setItem("token", json.data.data.token);
                     that.props.history.replace("/upload");
@@ -175,6 +177,7 @@ export default class Login extends React.Component<{ history: any }, any> {
                     that.openToast();
                 }
             }).catch((e) => {
+                Toast.hide();
                 that.openToast();
             });
         };

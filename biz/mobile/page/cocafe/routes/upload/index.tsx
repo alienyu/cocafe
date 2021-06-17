@@ -1,6 +1,6 @@
 import * as React from "react";
 import axios from 'axios';
-import { Flex, ImagePicker } from 'antd-mobile';
+import { Flex, ImagePicker, Toast } from 'antd-mobile';
 import { WrappedCmp } from './styled';
 
 export default class Upload extends React.Component<{ history: any }, any> {
@@ -40,12 +40,14 @@ export default class Upload extends React.Component<{ history: any }, any> {
             formData.append('files', file);
             formData.append('token', localStorage.getItem("token"));
             var url = `${mobileCocafeConstants.ajax.host}/upload/images`;
+            Toast.loading("Loading...");
             axios.post(url, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             }).then((json) => {
                 console.log(json);
+                Toast.hide();
                 var text = "";
                 if(json.data.code == 0) {
                     text = "上传成功";
@@ -57,6 +59,7 @@ export default class Upload extends React.Component<{ history: any }, any> {
                     promptText: text
                 });
             }).catch((e) => {
+                Toast.hide();
                 that.setState({
                     promptClass: "prompt show",
                     promptText: "上传失败，请重新上传"

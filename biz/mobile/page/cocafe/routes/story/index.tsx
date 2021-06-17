@@ -1,6 +1,6 @@
 import * as React from "react";
 import axios from 'axios';
-import { Flex } from 'antd-mobile';
+import { Flex, Toast } from 'antd-mobile';
 import { WrappedCmp } from './styled';
 
 export default class Story extends React.Component<{ history: any }, any> {
@@ -47,12 +47,14 @@ export default class Story extends React.Component<{ history: any }, any> {
             formData.append('token', localStorage.getItem("token"));
             formData.append('memory', this.state.descText)
             var url = `${mobileCocafeConstants.ajax.host}/upload/story`;
+            Toast.loading("Loading...");
             axios.post(url, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             }).then((json) => {
                 console.log(json);
+                Toast.hide();
                 if (json.data.code == 0) {
                     that.props.history.replace("/success");
                 } else {
@@ -62,6 +64,7 @@ export default class Story extends React.Component<{ history: any }, any> {
                     });
                 }
             }).catch((e) => {
+                Toast.hide();
                 that.setState({ 
                     promptText: "格式错误",
                     promptClass: "prompt show",

@@ -9,7 +9,7 @@ const check = require("@mobileCocafeImgs/check.png");
 const WrappedCmp = styled.div`
     @keyframes flash {
         0% {opacity: 0;}
-        100% {opacity: 1;}
+        10% {opacity: 1;}
     }
     background: url(${bg}) no-repeat #030303;
     background-size:100%;
@@ -63,7 +63,7 @@ const WrappedCmp = styled.div`
         width: 3.65rem;
         height: 0.81rem;
         left: 2.01rem;
-        top: 7.42rem;
+        top: 8.42rem;
         line-height: 0.81rem;
         text-align: center;
         background: #E62474;
