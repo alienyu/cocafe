@@ -99,13 +99,14 @@ const WrappedCmp = styled.div`
             position: absolute;
             top: 7rem;
             left: 50%;
-            width: 1.56rem;
-            margin-left: -0.68rem;
+            width: 2.56rem;
+            margin-left: -1.28rem;
             height: 0.32rem;
             z-index: 99;
             color: #fff;
             opacity: 0.5;
             font-size: 0.26rem;
+            text-align: center;
             &.hide {
                 display:none;
             }

@@ -54,7 +54,7 @@ export default class Index extends React.Component<{ history: any }, any> {
                 <div className="mcLogo"></div>
                 <div className="logo"></div>
                 <div className="title1">
-                    上传你在在凯科大厦的回忆<br />
+                    上传你在凯科大厦的回忆<br />
                     用NFT铸造属于大家的艺术品！
                 </div>
                 <div className="title2">
@@ -93,7 +93,7 @@ export default class Index extends React.Component<{ history: any }, any> {
                     wrapClassName="instructionModal"
                     footer={[{ text: '已知晓', onPress: () => { this.instructionModalClose(); } }]}
                 >
-                    <div style={{ height: 500, width: 300 }}>
+                    <div style={{ height: 500 }}>
                         <iframe src="https://memories.cocafe.co/mobile/cocafe/policy.html" width="296" height=" 600" style={{ border: 0 }}></iframe>
                     </div>
                 </Modal>
