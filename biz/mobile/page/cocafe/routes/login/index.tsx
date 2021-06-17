@@ -211,7 +211,7 @@ export default class Login extends React.Component<{ history: any }, any> {
                         </div>
                     </Flex>
                     <div className="title">输入个人信息</div>
-                    <Flex direction="row">
+                    <Flex direction="row" justify="between">
                         <div className="nameFrame">
                             <input
                                 type="text" className={this.state.nameInputClass}

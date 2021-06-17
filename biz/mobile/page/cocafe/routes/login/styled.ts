@@ -61,7 +61,7 @@ const WrappedCmp = styled.div`
         .nameFrame, .idFrame, .mobileFrame, .emailFrame {
             margin-top: 0.4rem;
             .input {
-                width: 5.35rem;
+                width: 5.5rem;
                 height: 0.8rem;
                 line-height: 0.8rem;
                 font-size: 0.26rem;
@@ -93,7 +93,6 @@ const WrappedCmp = styled.div`
                 width: 2.34rem;
             }
         }
-        .idFrame { margin-left: 0.2rem;}
         .loginBtn {
             width: 4.6rem;
             height: 1.1rem;

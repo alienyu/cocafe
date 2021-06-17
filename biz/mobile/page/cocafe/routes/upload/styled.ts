@@ -10,7 +10,6 @@ const WrappedCmp = styled.div`
     background: url(${bg}) no-repeat;
     background-size: 100% 100%;
     .frame {
-        width: 6rem;
         height: 100%;
         padding: 0.4rem 0.83rem;
         .back {
@@ -59,9 +58,10 @@ const WrappedCmp = styled.div`
             color: #fff;
         }
         .am-image-picker {
-            width: 6rem;
-            height: 6rem;
-            margin-top: 0.64rem;
+            width: 5.53rem;
+            height: 5.5rem;
+            margin-top: 0.34rem;
+            margin-left: 0.18rem;
             .am-image-picker-list {
                 padding: 0;
                 .am-image-picker-upload-btn:before {
@@ -77,8 +77,8 @@ const WrappedCmp = styled.div`
                 .am-image-picker-item {
                     background: rgba(0, 0, 0, 0.57);
                     border: 1px solid #E62474;
-                    width: 6rem;
-                    height: 5.9rem;
+                    width: 5.5rem;
+                    height: 5.4rem;
                     z-index: 100;
                     .am-image-picker-item-content {
                         background-size: 100% 100%;
@@ -92,7 +92,7 @@ const WrappedCmp = styled.div`
         }
         .uploadHack {
             position: absolute;
-            top: 7.5rem;
+            top: 7rem;
             left: 50%;
             width: 1.56rem;
             margin-left: -0.68rem;
@@ -112,14 +112,14 @@ const WrappedCmp = styled.div`
             text-align: center;
             color: #e62474;
             font-size: 0.24rem;
-            margin-top: 0.8rem;
+            margin-top: 0.3rem;
             &.show { visibility: visible;}
         }
         .nextBtn {
             width: 4.6rem;
             height: 1.1rem;
             line-height: 1.1rem;
-            margin-top: 0.5rem;
+            margin-top: 0.3rem;
             margin-left: 0.73rem;
             text-align: center;
             font-weight: 500;
