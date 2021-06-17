@@ -65,8 +65,8 @@ export default class Index extends React.Component<{ history: any }, any> {
                 <button className="btn" onClick={this.next}>开始上传</button>
                 <div className="prompt">
                     <i onClick={this.check} className={this.state.checkClass}></i>我已阅读并同意
-                    <a onClick={this.activeModalOpen}>“活动说明及肖像授权”</a>&nbsp;
-                    <a onClick={this.instructionModalOpen}>“和个人信息使用说明”</a>
+                    <a onClick={this.activeModalOpen}>“活动说明及肖像授权”</a>和
+                    <a onClick={this.instructionModalOpen}>“个人信息使用说明”</a>
                 </div>
                 <Modal
                     visible={this.state.activeModal}
