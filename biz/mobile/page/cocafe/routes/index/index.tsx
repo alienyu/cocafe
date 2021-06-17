@@ -15,7 +15,7 @@ export default class Index extends React.Component<{ history: any }, any> {
 
     next = () => {
         if (this.state.check) {
-            this.props.history.push("/login");
+            this.props.history.replace("/login");
         } else {
             this.setState({ toastClass: "toast show" });
             setTimeout(() => {

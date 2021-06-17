@@ -155,12 +155,11 @@ export default class Login extends React.Component<{ history: any }, any> {
         let that = this;
         if (this.validName(this.state.nameInputText) &&
             this.validId(this.state.idInputText) &&
-            this.vaildMobile(this.state.mobileInputText) &&
             this.validEmail(this.state.emailInputText)) {
             let formData = new FormData();
             formData.append('username', this.state.nameInputText);
             formData.append('staff', this.state.idInputText);
-            formData.append('phone', this.state.mobileInputText);
+            // formData.append('phone', this.state.mobileInputText);
             formData.append('email', this.state.emailInputText);
             var url = `${mobileCocafeConstants.ajax.host}/auth`;
             axios.post(url, formData, {
@@ -171,7 +170,7 @@ export default class Login extends React.Component<{ history: any }, any> {
                 console.log(json);
                 if (json.data.code == 0) {
                     localStorage.setItem("token", json.data.data.token);
-                    that.props.history.push("/upload");
+                    that.props.history.replace("/upload");
                 } else {
                     that.openToast();
                 }
@@ -182,11 +181,11 @@ export default class Login extends React.Component<{ history: any }, any> {
     }
 
     back = () => {
-        this.props.history.push("/");
+        this.props.history.replace("/");
     }
 
     next = () => {
-        this.props.history.push("/upload");
+        this.props.history.replace("/upload");
     }
 
     openToast = () => {
@@ -230,14 +229,14 @@ export default class Login extends React.Component<{ history: any }, any> {
                             <div className={this.state.idErrClass}>{this.state.idInputErrText}</div>
                         </div>
                     </Flex>
-                    <div className="mobileFrame">
+                    {/* <div className="mobileFrame">
                         <input
                             type="text" className={this.state.mobileInputClass}
                             placeholder="手机"
                             onChange={this.mobileChange}
                         />
                         <div className={this.state.mobileErrClass}>{this.state.mobileInputErrText}</div>
-                    </div>
+                    </div> */}
                     <div className="emailFrame">
                         <input
                             type="text" className={this.state.emailInputClass}

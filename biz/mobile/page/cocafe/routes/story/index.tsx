@@ -54,7 +54,7 @@ export default class Story extends React.Component<{ history: any }, any> {
             }).then((json) => {
                 console.log(json);
                 if (json.data.code == 0) {
-                    that.props.history.push("/success");
+                    that.props.history.replace("/success");
                 } else {
                     that.setState({ 
                         promptText: json.data.msg,
@@ -72,7 +72,7 @@ export default class Story extends React.Component<{ history: any }, any> {
     }
 
     back = () => {
-        this.props.history.push("/upload");
+        this.props.history.replace("/upload");
     }
 
     render() {

@@ -21,7 +21,7 @@ export default class Upload extends React.Component<{ history: any }, any> {
                 promptText: "请上传照片"
             });
         } else {
-            this.props.history.push("/story");
+            this.props.history.replace("/story");
         }
     }
 
@@ -71,7 +71,7 @@ export default class Upload extends React.Component<{ history: any }, any> {
     }
 
     back = () => {
-        this.props.history.push("/login");
+        this.props.history.replace("/login");
     }
 
     render() {
