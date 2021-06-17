@@ -11,7 +11,6 @@ const WrappedCmp = styled.div`
     background: url(${bg}) no-repeat;
     background-size: 100% 100%;
     .frame {
-        width: 6rem;
         height: 100%;
         padding: 0.4rem 0.83rem;
         .back {
@@ -62,7 +61,7 @@ const WrappedCmp = styled.div`
         .nameFrame, .idFrame, .mobileFrame, .emailFrame {
             margin-top: 0.4rem;
             .input {
-                width: 5.3rem;
+                width: 5.35rem;
                 height: 0.8rem;
                 line-height: 0.8rem;
                 font-size: 0.26rem;
@@ -91,7 +90,7 @@ const WrappedCmp = styled.div`
         .nameFrame, .idFrame {
             margin-top: 0.64rem;
             .input {
-                width: 2.35rem;
+                width: 2.34rem;
             }
         }
         .idFrame { margin-left: 0.2rem;}

@@ -80,6 +80,9 @@ const WrappedCmp = styled.div`
                     width: 6rem;
                     height: 3.2rem;
                     z-index: 100;
+                    .am-image-picker-item-content {
+                        background-size: 100% 100%;
+                    }
                 }
             }
         }

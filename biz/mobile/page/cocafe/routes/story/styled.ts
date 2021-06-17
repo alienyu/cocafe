@@ -62,7 +62,7 @@ const WrappedCmp = styled.div`
             margin-top: 1rem;
             .input {
                 resize: none;
-                width: 5.58rem;
+                width: 5.35rem;
                 height: 3.2rem;
                 line-height: 0.32rem;
                 font-weight: 400;

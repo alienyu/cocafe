@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 const bg = require("@mobileCocafeImgs/mainBG.png");
 const btnOri = require("@mobileCocafeImgs/btnOri.png");
 const btnClick = require("@mobileCocafeImgs/btnClick.png");
@@ -11,25 +11,25 @@ const WrappedCmp = styled.div`
         0% {opacity: 0;}
         100% {opacity: 1;}
     }
-    background: url(${bg}) no-repeat;
-    background-size:100% 100%;
+    background: url(${bg}) no-repeat #030303;
+    background-size:100%;
     min-height: 100vh;
     .mcLogo {
         position: absolute;
-        top: ${window.screen.height/667*115}px;
+        top: 0.54rem;
         left: 0.68rem;
         width: 0.94rem;
-        height: ${window.screen.height/667*41}px;
+        height: 0.82rem;
         background: url(${mcLogo}) no-repeat;
         background-size: 100% 100%;
 
     }
     .logo {
         position: absolute;
-        top: ${window.screen.height/667*115}px;
+        top: 0.54rem;
         left: 1.88rem;
         width: 0.88rem;
-        height: ${window.screen.height/667*65}px;;
+        height: 1.3rem;
         background: url(${logo}) no-repeat;
         background-size: 100% 100%;
 
@@ -38,7 +38,7 @@ const WrappedCmp = styled.div`
         position: absolute;
         background: rgba(0, 0, 0, 0.57);
         width: 3.36rem;
-        top: ${window.screen.height/667*380}px;
+        top: 5.78rem
         padding: 0.3rem;
         left: 0.6rem;
         border: 1px solid #E62474;
@@ -50,7 +50,7 @@ const WrappedCmp = styled.div`
         position: absolute;
         background: rgba(0, 0, 0, 0.57);
         width: 4.1rem;
-        top: ${window.screen.height/667*427}px;
+        top: 6.78rem;
         padding: 0.3rem 0.2rem;
         left: 2.34rem;
         border: 1px solid #E62474;
@@ -63,7 +63,7 @@ const WrappedCmp = styled.div`
         width: 3.65rem;
         height: 0.81rem;
         left: 2.01rem;
-        top: ${window.screen.height/667*460}px;
+        top: 7.42rem;
         line-height: 0.81rem;
         text-align: center;
         background: #E62474;
@@ -79,8 +79,8 @@ const WrappedCmp = styled.div`
         position: absolute;
         width: 4.6rem;
         height: 1.1rem;
-        left: 1.36rem;
-        top: ${window.screen.height/667*525}px;
+        left: 1.45rem;
+        top: 8.74rem;
         line-height: 1.1rem;
         text-align: center;
         font-weight: 500;
@@ -97,15 +97,16 @@ const WrappedCmp = styled.div`
     }
     .prompt {
         position: absolute;
-        top: ${window.screen.height/667*601}px;
-        left: 1.16rem;
-        font-size: 0.20rem;
+        top: 10.36rem;
+        left: 50%;
+        font-size: 12px;
         font-weight: 400;
         line-height: 0.28rem;
         color: #fff;
+        width: 350px;
+        margin-left: -175px;
         i {
             float: left;
-            display: inline-block;
             width: 0.24rem;
             height: 0.24rem;
             border: 1px solid #fff;
@@ -117,8 +118,16 @@ const WrappedCmp = styled.div`
         }
         a { text-decoration: underline; }
     }
+
+`;
+
+const GlobalStyle = createGlobalStyle`
+    .instructionModal {
+        .am-modal-transparent { width: 90%; }
+    }
 `;
 
 export {
-    WrappedCmp
+    WrappedCmp,
+    GlobalStyle
 }

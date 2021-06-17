@@ -16,28 +16,13 @@
             platform: "<%= htmlWebpackPlugin.options.deployConf.platform %>",
             page: "<%= htmlWebpackPlugin.options.deployConf.page %>",
             mode: "<%= htmlWebpackPlugin.options.deployConf.mode %>",
-            ver: "<%= htmlWebpackPlugin.options.deployConf.ver %>"
+            ver: "<%= htmlWebpackPlugin.options.deployConf.ver %>",
+            isWx: window.navigator.userAgent.toLowerCase().match(/MicroMessenger/i) == 'micromessenger'
         }
     </script>
     <script>
         let screenWidth = window.screen.width;
         document.getElementsByTagName("html")[0].style.fontSize = (100 * (screenWidth / 750)).toString() + "px";
-    </script>
-    <script>
-        function onBridgeReady() {
-            WeixinJSBridge.call('hideToolbar');
-        }
-
-        if (typeof WeixinJSBridge == "undefined") {
-            if (document.addEventListener) {
-                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
-            } else if (document.attachEvent) {
-                document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
-                document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
-            }
-        } else {
-            onBridgeReady();
-        }
     </script>
 </body>
 
