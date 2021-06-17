@@ -16,20 +16,20 @@ const WrappedCmp = styled.div`
     min-height: 100vh;
     .mcLogo {
         position: absolute;
-        top: ${375/window.screen.width*window.screen.height/812*2.64}rem;
+        top: ${window.screen.height/667*115}px;
         left: 0.68rem;
         width: 0.94rem;
-        height: 0.82rem;
+        height: ${window.screen.height/667*41}px;
         background: url(${mcLogo}) no-repeat;
         background-size: 100% 100%;
 
     }
     .logo {
         position: absolute;
-        top: ${375/window.screen.width*window.screen.height/812*2.64}rem;
+        top: ${window.screen.height/667*115}px;
         left: 1.88rem;
         width: 0.88rem;
-        height: 1.34rem;
+        height: ${window.screen.height/667*65}px;;
         background: url(${logo}) no-repeat;
         background-size: 100% 100%;
 
@@ -37,8 +37,8 @@ const WrappedCmp = styled.div`
     .title1 {
         position: absolute;
         background: rgba(0, 0, 0, 0.57);
-        width: 3.66rem;
-        top: ${375/window.screen.width*window.screen.height/812*9.14}rem;
+        width: 3.36rem;
+        top: ${window.screen.height/667*380}px;
         padding: 0.3rem;
         left: 0.6rem;
         border: 1px solid #E62474;
@@ -50,8 +50,8 @@ const WrappedCmp = styled.div`
         position: absolute;
         background: rgba(0, 0, 0, 0.57);
         width: 4.1rem;
-        top: ${375/window.screen.width*window.screen.height/812*10.11}rem;
-        padding: 0.3rem;
+        top: ${window.screen.height/667*427}px;
+        padding: 0.3rem 0.2rem;
         left: 2.34rem;
         border: 1px solid #E62474;
         font-size: 0.22rem;
@@ -63,7 +63,7 @@ const WrappedCmp = styled.div`
         width: 3.65rem;
         height: 0.81rem;
         left: 2.01rem;
-        top: ${375/window.screen.width*window.screen.height/812*11}rem;
+        top: ${window.screen.height/667*460}px;
         line-height: 0.81rem;
         text-align: center;
         background: #E62474;
@@ -80,7 +80,7 @@ const WrappedCmp = styled.div`
         width: 4.6rem;
         height: 1.1rem;
         left: 1.36rem;
-        top: ${375/window.screen.width*window.screen.height/812*13}rem;
+        top: ${window.screen.height/667*525}px;
         line-height: 1.1rem;
         text-align: center;
         font-weight: 500;
@@ -97,7 +97,7 @@ const WrappedCmp = styled.div`
     }
     .prompt {
         position: absolute;
-        top: ${375/window.screen.width*window.screen.height/812*15}rem;
+        top: ${window.screen.height/667*601}px;
         left: 1.16rem;
         font-size: 0.20rem;
         font-weight: 400;
